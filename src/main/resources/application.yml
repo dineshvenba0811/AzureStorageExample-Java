@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    azure:
+      storage:
+        blob:
+          endpoint: DefaultEndpointsProtocol=https;AccountName=storedineshvenba0811;AccountKey=upxjZ1v9EFU91oztpM7GVNH4bi6r8/+RY7pQkQQDuTt/Fqda+2P/jlzOiCwI5yEAdfYA8Yoy9yAy+AStopeMDA==;EndpointSuffix=core.windows.net
+          account-name: storedineshvenba0811
