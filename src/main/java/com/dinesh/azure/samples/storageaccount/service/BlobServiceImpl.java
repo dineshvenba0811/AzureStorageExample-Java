@@ -6,12 +6,15 @@ import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 import com.azure.storage.blob.models.BlobItem;
+import com.azure.storage.blob.models.BlobProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BlobServiceImpl implements BlobService {
@@ -78,5 +81,12 @@ public class BlobServiceImpl implements BlobService {
         BlobContainerClient blobContainerClient=createContainer();
         BlobClient blobClient=blobContainerClient.getBlobClient(fileName);
         blobClient.delete();
+        // adding mete data
+        Map<String,String> metadataMap=new HashMap<>();
+        metadataMap.put("key","1");
+        blobClient.setMetadata(metadataMap);
+        // getting values from metadata
+        BlobProperties blobProperties=blobClient.getProperties();
+        blobProperties.getMetadata();
     }
 }
