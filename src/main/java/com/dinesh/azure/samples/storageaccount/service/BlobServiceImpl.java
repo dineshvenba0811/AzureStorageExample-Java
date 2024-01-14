@@ -87,6 +87,7 @@ public class BlobServiceImpl implements BlobService {
         blobClient.setMetadata(metadataMap);
         // getting values from metadata
         BlobProperties blobProperties=blobClient.getProperties();
-        blobProperties.getMetadata();
+        Map<String,String> metadataMapretival= blobProperties.getMetadata();
+
     }
 }
